@@ -57,4 +57,45 @@
   };
 
   // ADD YOUR CODE HERE
-})();
+// function listeningButton()
+
+let formName= document.getElementById('searchMovie');
+let searchVal =document.getElementById("search");
+let submitBtn= document.getElementById('mybtn');
+
+//NEED TP UNDERSTAND WELL HOW THIS WORKS
+
+submitBtn.addEventListener("click", function(eventTriggered){
+  eventTriggered.preventDefault();
+  var movieName = searchVal.value;
+  //this line returns the value that was entered into the search box.
+    findMovie(movieName);
+      //this invokes the function below on this movie entered.
+
+});
+
+function findMovie(movieName){
+  var  url = (`http://www.omdbapi.com/?s=${movieName}`);
+  return fetch(url)
+  .then(function(moviePromise){
+    // console.log(moviePromise);
+    return moviePromise.json();
+  })
+  .then((moviePromise) => {
+    let arrOfMovieObjs = moviePromise.Search;
+// console.log(arrOfMovieObjs);
+arrOfMovieObjs.forEach(function(obj){
+  // console.log(obj.imdbID);
+
+  movies.push({id: obj['imdbID'],
+                poster: obj['Poster'],
+                title: obj['Title'],
+                year: obj['Year']})
+
+});
+renderMovies();
+})
+
+}
+
+}) ();

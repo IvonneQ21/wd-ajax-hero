@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/materialize.min.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <div class="navbar-fixed">
     <nav>
@@ -30,15 +31,16 @@
 
   <main class="container">
     <div class="row">
-      <form>
+      <form id="searchMovie">
         <div class="col offset-s2 s7">
-          <div class="input-field">
-            <input type="text" placeholder="Enter movie title e.g. Jumanji" id="search" name="search" />
+          <!-- this is where the searchbox is at. -->
+          <div class="input-field" >
+            <input type="text" placeholder="Enter movie title e.g. Jumanji" id="search" name = "search" />
           </div>
         </div>
 
         <div class="col s3">
-          <button class="btn-large waves-effect waves-light" type="submit" name="action">
+          <button id="mybtn" class="btn-large waves-effect waves-light" name="action">
             <i class="material-icons right">search</i>
             Search
           </button>
